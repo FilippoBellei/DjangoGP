@@ -7,12 +7,12 @@ class Rider(models.Model):
     team = models.CharField(max_length=255)
     bike = models.CharField(max_length=255)
     dateOfBirth = models.DateField()
-    placeOfBirth = models.DateField()
+    placeOfBirth = models.CharField(max_length=255)
     height = models.IntegerField()
     peso = models.IntegerField()
 
     def __str__(self):
-        return sel.name
+        return self.name
 
 
 class Race(models.Model):
@@ -20,13 +20,13 @@ class Race(models.Model):
     city = models.CharField(max_length=255)
     date = models.DateField()
     temperature = models.IntegerField()
-    wheather = models.CharField(max_length=255)
+    weather = models.CharField(max_length=255)
     trackCondition = models.CharField(max_length=255)
     humidity = models.IntegerField()
     groundTemperature = models.IntegerField()
 
     def __str__(self):
-        return sel.name
+        return self.name
 
 
 class Result(models.Model):
@@ -36,7 +36,7 @@ class Result(models.Model):
     race = models.ForeignKey(Race, on_delete=models.PROTECT)
 
     def __str__(self):
-        return sel.position
+        return str(self.position)
 
 
 class Standings(models.Model):
@@ -44,8 +44,8 @@ class Standings(models.Model):
     points = models.IntegerField()
     rider = models.ForeignKey(Rider, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return str(self.position)
+
     class Meta:
         verbose_name_plural = "Standings"
-
-        def __str__(self):
-            return sel.position
