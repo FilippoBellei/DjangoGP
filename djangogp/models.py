@@ -11,6 +11,9 @@ class Rider(models.Model):
     height = models.IntegerField()
     peso = models.IntegerField()
 
+    def __str__(self):
+        return sel.name
+
 
 class Race(models.Model):
     name = models.CharField(max_length=255)
@@ -22,6 +25,9 @@ class Race(models.Model):
     humidity = models.IntegerField()
     groundTemperature = models.IntegerField()
 
+    def __str__(self):
+        return sel.name
+
 
 class Result(models.Model):
     position = models.IntegerField()
@@ -29,8 +35,17 @@ class Result(models.Model):
     rider = models.ForeignKey(Rider, on_delete=models.PROTECT)
     race = models.ForeignKey(Race, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return sel.position
+
 
 class Standings(models.Model):
     position = models.IntegerField()
     points = models.IntegerField()
     rider = models.ForeignKey(Rider, on_delete=models.PROTECT)
+
+    class Meta:
+        verbose_name_plural = "Standings"
+
+        def __str__(self):
+            return sel.position
