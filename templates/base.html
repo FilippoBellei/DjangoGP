@@ -17,10 +17,9 @@
 
 <body>
     <nav>
-        <a href="{% url 'homepage' %}">Home</a>
-        <a href="">Races</a>
-        <a href="">Standings</a>
-        <a href="">Riders</a>
+        <a href="{% url 'djangogp:race_list' %}">Races</a>
+        <a href="{% url 'djangogp:standings_list' %}">Standings</a>
+        <a href="{% url 'djangogp:rider_list' %}">Riders</a>
     </nav>
     <main>
         {% block content %}

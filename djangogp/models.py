@@ -9,7 +9,7 @@ class Rider(models.Model):
     dateOfBirth = models.DateField()
     placeOfBirth = models.CharField(max_length=255)
     height = models.IntegerField()
-    peso = models.IntegerField()
+    weight = models.IntegerField()
 
     def __str__(self):
         return self.name

@@ -6,7 +6,7 @@ from django.views.generic import (
     UpdateView,
 )
 
-from .models import Rider, Race, Result, Standings
+from djangogp.models import Rider, Race, Result, Standings
 
 __all__ = [
     "RiderListView",

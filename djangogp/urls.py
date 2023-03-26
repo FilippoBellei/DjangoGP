@@ -10,8 +10,7 @@ from djangogp.views import (
 app_name = "djangogp"
 
 urlpatterns = [
-    path("riders/", RiderListView.as_view()),
-    path("races/", RaceListView.as_view()),
-    path("results/", ResultListView.as_view()),
-    path("standings/", StandingsListView.as_view()),
+    path("riders/", RiderListView.as_view(), name="rider_list"),
+    path("races/", RaceListView.as_view(), name="race_list"),
+    path("standings/", StandingsListView.as_view(), name="standings_list"),
 ]

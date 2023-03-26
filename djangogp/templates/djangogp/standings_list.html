@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Standing</h1>
+<table>
+    <th>Position</th>
+    <th>Rider</th>
+    <th>Nation</th>
+    <th>Team</th>
+    <th>Bike</th>
+    <th>Points</th>
+    {% for object in object_list %}
+    <tr>
+        <td>{{ object.position }}</td>
+        <td>{{ object.rider.name }}</td>
+        <td>{{ object.rider.country }}</td>
+        <td>{{ object.rider.team }}</td>
+        <td>{{ object.rider.bike }}</td>
+        <td>{{ object.rider.points }}</td>
+        <td>{{ object.points }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
