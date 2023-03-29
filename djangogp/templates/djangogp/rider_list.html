@@ -3,24 +3,16 @@
 {% block content %}
 <h1>Riders</h1>
 <table>
-    <th>Name</th>
     <th>Country</th>
+    <th>Name</th>
     <th>Team</th>
-    <th>Bike</th>
-    <th>Date of birth</th>
-    <th>Place of birth</th>
-    <th>Height</th>
-    <th>Weight</th>
     {% for object in object_list %}
     <tr>
-        <td>{{ object.name }}</td>
         <td>{{ object.country }}</td>
+        <td><a href="{% url 'djangogp:rider_detail' object.id %}">{{ object.name }}</a></td>
         <td>{{ object.team }}</td>
-        <td>{{ object.bike }}</td>
-        <td>{{ object.dateOfBirth }}</td>
-        <td>{{ object.placeOfBirth }}</td>
-        <td>{{ object.height }}</td>
-        <td>{{ object.weight }}</td>
+        <td><a href="{% url 'djangogp:rider_update' object.id %}">Update</a></td>
+        <td><a href="{% url 'djangogp:rider_delete' object.id %}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>

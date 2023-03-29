@@ -12,7 +12,7 @@
     {% for object in object_list %}
     <tr>
         <td>{{ object.position }}</td>
-        <td>{{ object.rider.name }}</td>
+        <td><a href="{% url 'djangogp:rider_detail' object.rider.id %}">{{ object.rider.name }}</a></td>
         <td>{{ object.rider.country }}</td>
         <td>{{ object.rider.team }}</td>
         <td>{{ object.rider.bike }}</td>
