@@ -1,5 +1,7 @@
 # Task
+
 Mandatory:
+
 - [x] CRUD Rider
 - [ ] CRUD Races
 - [ ] CRUD Result
@@ -8,6 +10,7 @@ Mandatory:
 - [ ] Gestire il design con Bootstrap
 
 Optional:
+
 - [ ] Login
 - [ ] Flexbox o grid (CSS)
 - [ ] Ajax (JavaScript)
