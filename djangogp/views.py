@@ -62,7 +62,8 @@ class RiderDeleteView(DeleteView):
 
 
 class RaceRedirectView(RedirectView):
-    url = "http://127.0.0.1:8000/race/" + str(Race.objects.order_by("-date")[0].pk)
+    def get_redirect_url(self):
+        return reverse_lazy("djangogp:race_detail", kwargs={"pk": 1})
 
 
 class RaceDetailView(DetailView):
