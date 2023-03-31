@@ -10,6 +10,7 @@ Mandatory:
 - [x] Race RedirectView
 - [x] Race DetailView
 - [x] Standings ListView
+- [ ] Gestire automaticamente i punti e la classifica
 - [ ] HTML Responsive (almeno 1 breakpoint)
 - [ ] Gestire il design con Bootstrap
 
