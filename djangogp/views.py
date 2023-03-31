@@ -8,7 +8,7 @@ __all__ = [
     "RiderUpdateView",
     "RiderCreateView",
     "RiderDeleteView",
-    "RaceListView",
+    "RaceRedirectView",
     "RaceDetailView",
     "StandingsListView",
 ]
@@ -61,8 +61,8 @@ class RiderDeleteView(DeleteView):
     success_url = reverse_lazy("djangogp:rider_list")
 
 
-class RaceListView(ListView):
-    model = Race
+class RaceRedirectView(RedirectView):
+    url = "http://127.0.0.1:8000/race/" + str(Race.objects.order_by("-date")[0].pk)
 
 
 class RaceDetailView(DetailView):
@@ -71,7 +71,7 @@ class RaceDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = {
             "race": kwargs["object"],
-            "races": Race.objects.all(),
+            "races": Race.objects.order_by("-date"),
             "results": Result.objects.all().filter(race=kwargs["object"].pk),
         }
         return context
