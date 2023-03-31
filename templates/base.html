@@ -15,11 +15,13 @@
 </head>
 
 <body>
-    <nav>
-        <a href="{% url 'djangogp:race_list' %}">Races</a>
-        <a href="{% url 'djangogp:standings_list' %}">Standings</a>
-        <a href="{% url 'djangogp:rider_list' %}">Riders</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="{% url 'djangogp:race_list' %}">Races</a>
+            <a href="{% url 'djangogp:standings_list' %}">Standings</a>
+            <a href="{% url 'djangogp:rider_list' %}">Riders</a>
+        </nav>
+    </header>
     <main>
         {% block content %}
         {% endblock %}
