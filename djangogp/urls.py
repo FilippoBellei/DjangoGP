@@ -10,5 +10,6 @@ urlpatterns = [
     path("rider/create/", RiderCreateView.as_view(), name="rider_create"),
     path("rider/<int:pk>/delete/", RiderDeleteView.as_view(), name="rider_delete"),
     path("races/", RaceListView.as_view(), name="race_list"),
+    path("race/<int:pk>/", RaceDetailView.as_view(), name="race_detail"),
     path("", StandingsListView.as_view(), name="standings_list"),
 ]

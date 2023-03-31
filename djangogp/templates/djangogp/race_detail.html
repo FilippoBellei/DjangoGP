@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h1>{{ race.name }}</h1>
+<p>{{ race.city }}</p>
+<p>{{ race.date }}</p>
+<br>
+<p>{{ race.temperature }}º C</p>
+<p>{{ race.weather }}</p>
+<p>Track condition: {{ race.trackCondition }}</p>
+<p>Humidity: {{ race.humidity }}%</p>
+<p>Ground: {{ race.trackCondition }}º</p>
+<br>
+<table>
+    <th>Position</th>
+    <th>Points</th>
+    <th>Rider</th>
+    <th>Nation</th>
+    <th>Team</th>
+    <th>Bike</th>
+    {% for object in results %}
+    <tr>
+        <td>{{ object.position }}</td>
+        <td>{{ object.points }}</td>
+        <td><a href="{% url 'djangogp:rider_detail' object.rider.id %}">{{ object.rider.name }}</a></td>
+        <td>{{ object.rider.country }}</td>
+        <td>{{ object.rider.team }}</td>
+        <td>{{ object.rider.bike }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<h3>Races</h3>
+{% for object in races %}
+<a href="{% url 'djangogp:race_detail' object.id %}">{{ object.name }}</a>
+{% endfor %}
+{% endblock %}
