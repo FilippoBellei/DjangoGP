@@ -2,6 +2,12 @@
 
 {% block content %}
 <br>
+<h3>Races</h3>
+{% for object in races %}
+<a href="{% url 'djangogp:race_detail' object.id %}">{{ object.name }}</a>
+<br>
+{% endfor %}
+<br>
 <h1>{{ race.name }}</h1>
 <p>{{ race.city }}</p>
 <p>{{ race.date }}</p>
@@ -30,9 +36,4 @@
     </tr>
     {% endfor %}
 </table>
-<br>
-<h3>Races</h3>
-{% for object in races %}
-<a href="{% url 'djangogp:race_detail' object.id %}">{{ object.name }}</a>
-{% endfor %}
 {% endblock %}
