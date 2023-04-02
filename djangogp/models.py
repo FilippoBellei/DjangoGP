@@ -20,12 +20,24 @@ class Rider(Model):
 
 
 class Race(Model):
+    WEATHER_CHOICES = [
+        ("Clear", "Clear"),
+        ("Partly-Cloudy", "Partly-Cloudy"),
+        ("Cloudy", "Cloudy"),
+        ("Light-Rain", "Light-Rain"),
+        ("Raining", "Raining"),
+    ]
+    TRACK_CONDITION_CHOICES = [
+        ("Dry", "Dry"),
+        ("Wet-Dry", "Wet-Dry"),
+        ("Wet", "Wet"),
+    ]
     name = CharField(max_length=255)
     city = CharField(max_length=255)
     date = DateField()
     temperature = IntegerField()
-    weather = CharField(max_length=255)
-    trackCondition = CharField(max_length=255)
+    weather = CharField(max_length=15, choices=WEATHER_CHOICES)
+    trackCondition = CharField(max_length=7, choices=TRACK_CONDITION_CHOICES)
     humidity = IntegerField()
     groundTemperature = IntegerField()
 
