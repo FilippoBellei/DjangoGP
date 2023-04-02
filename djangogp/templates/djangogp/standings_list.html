@@ -11,7 +11,7 @@
     <th>Points</th>
     {% for object in object_list %}
     <tr>
-        <td>{{ object.position }}</td>
+        <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'djangogp:rider_detail' object.rider.id %}">{{ object.rider.name }}</a></td>
         <td>{{ object.rider.country }}</td>
         <td>{{ object.rider.team }}</td>

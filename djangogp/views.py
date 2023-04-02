@@ -75,10 +75,11 @@ class RaceDetailView(DetailView):
         context = {
             "race": kwargs["object"],
             "races": Race.objects.order_by("-date"),
-            "results": Result.objects.all().filter(race=kwargs["object"].pk),
+            "results": Result.objects.filter(race=kwargs["object"].pk),
         }
         return context
 
 
 class StandingsListView(ListView):
     model = Standings
+    ordering = ["-points"]
