@@ -22,7 +22,8 @@
         <nav>
             <a href="{% url 'djangogp:race_list' %}">Races</a>
             <a href="{% url 'djangogp:rider_list' %}">Standings</a>
-            <div class="login">{% if user.is_anonymous %}
+            <div class="login">
+                {% if user.is_anonymous %}
                 <a href="{% url 'login' %}">Login</a>
                 {% else %}
                 <p id="username">{{user.username}}</p>

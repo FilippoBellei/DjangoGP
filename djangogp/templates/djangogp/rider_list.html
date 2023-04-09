@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Standing</h1>
+<h1>Standings</h1>
 <table>
     <th>Position</th>
     <th>Rider</th>
@@ -17,7 +17,15 @@
         <td>{{ object.team }}</td>
         <td>{{ object.bike }}</td>
         <td>{{ object.points }}</td>
+        {% if user.is_authenticated %}
+        <td><a href="{% url 'djangogp:rider_update' object.id %}">Update</a></td>
+        <td><a href="{% url 'djangogp:rider_delete' object.id %}">Delete</a></td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>
+<br>
+{% if user.is_authenticated %}
+<a href="{% url 'djangogp:rider_create' %}">Create</a>
+{% endif %}
 {% endblock %}
