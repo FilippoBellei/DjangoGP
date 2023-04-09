@@ -10,10 +10,7 @@ class Rider(Model):
     placeOfBirth = CharField(max_length=255)
     height = IntegerField()
     weight = IntegerField()
-
-    def save(self):
-        super(Rider, self).save()
-        Standings.objects.create(points=0, rider=self)
+    points = IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -88,18 +85,6 @@ class Result(Model):
                 self.points = 1
             case _:
                 self.points = 0
-        riderRanking = Standings.objects.get(rider=self.rider)
-        riderRanking.points += self.points
-        riderRanking.save()
+        self.rider.points += self.points
+        self.rider.save()
         super(Result, self).save()
-
-
-class Standings(Model):
-    points = IntegerField()
-    rider = ForeignKey(Rider, on_delete=CASCADE, editable=False)
-
-    def __str__(self):
-        return str(self.rider.name)
-
-    class Meta:
-        verbose_name_plural = "Standings"

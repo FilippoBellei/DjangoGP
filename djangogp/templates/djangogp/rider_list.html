@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Riders</h1>
+<h1>Standing</h1>
 <table>
-    <th>Country</th>
-    <th>Name</th>
+    <th>Position</th>
+    <th>Rider</th>
+    <th>Nation</th>
     <th>Team</th>
+    <th>Bike</th>
+    <th>Points</th>
     {% for object in object_list %}
     <tr>
-        <td>{{ object.country }}</td>
+        <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'djangogp:rider_detail' object.id %}">{{ object.name }}</a></td>
+        <td>{{ object.country }}</td>
         <td>{{ object.team }}</td>
-        <td><a href="{% url 'djangogp:rider_update' object.id %}">Update</a></td>
-        <td><a href="{% url 'djangogp:rider_delete' object.id %}">Delete</a></td>
+        <td>{{ object.bike }}</td>
+        <td>{{ object.points }}</td>
     </tr>
     {% endfor %}
 </table>
-<br>
-<a href="{% url 'djangogp:rider_create' %}">Create</a>
 {% endblock %}

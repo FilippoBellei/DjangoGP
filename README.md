@@ -9,7 +9,6 @@ Mandatory:
 - [x] Rider DeleteView
 - [x] Race RedirectView
 - [x] Race DetailView
-- [x] Standings ListView
 - [x] Gestione automatica dei punti
 - [x] Gestione automatica della classifica
 - [ ] HTML Responsive (almeno 1 breakpoint)
@@ -22,7 +21,3 @@ Optional:
 - [ ] Ajax (JavaScript)
 - [ ] Crispy Form
 - [ ] Accessibilità
-
-## Reminders
-
-- Ricordarsi di eliminare Standings da `admin.py` una volta completato il task della gestione automatica della classifica

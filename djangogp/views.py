@@ -10,12 +10,12 @@ __all__ = [
     "RiderDeleteView",
     "RaceRedirectView",
     "RaceDetailView",
-    "StandingsListView",
 ]
 
 
 class RiderListView(ListView):
     model = Rider
+    ordering = ["-points"]
 
 
 class RiderDetailView(DetailView):
@@ -78,8 +78,3 @@ class RaceDetailView(DetailView):
             "results": Result.objects.filter(race=kwargs["object"].pk),
         }
         return context
-
-
-class StandingsListView(ListView):
-    model = Standings
-    ordering = ["-points"]
