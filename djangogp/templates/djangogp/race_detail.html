@@ -2,21 +2,23 @@
 
 {% block content %}
 <br>
-<h3>Races</h3>
-{% for object in races %}
-<a href="{% url 'djangogp:race_detail' object.id %}">{{ object.name }}</a>
-<br>
-{% endfor %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Races</button>
+    <ul class="dropdown-menu">
+        {% for object in races %}
+        <li><a class="dropdown-item" href="{% url 'djangogp:race_detail' object.id %}">{{ object.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 <br>
 <h1>{{ race.name }}</h1>
-<p>{{ race.city }}</p>
-<p>{{ race.date }}</p>
-<br>
-<p>{{ race.temperature }}º C</p>
-<p>{{ race.weather }}</p>
-<p>Track condition: {{ race.trackCondition }}</p>
-<p>Humidity: {{ race.humidity }}%</p>
-<p>Ground: {{ race.groundTemperature }}º</p>
+<span>{{ race.city }} , {{ race.date }}</span>
+<span>{{ race.temperature }}º C</span>
+<span>{{ race.weather }}</span>
+<span>Track condition: {{ race.trackCondition }}</span>
+<span>Humidity: {{ race.humidity }}%</span>
+<span>Ground: {{ race.groundTemperature }}º</span>
 <br>
 <table>
     <th>Position</th>
