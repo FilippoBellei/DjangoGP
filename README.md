@@ -16,7 +16,7 @@ Mandatory:
 
 Optional:
 
-- [ ] Login
+- [x] Login
 - [ ] Flexbox o grid (CSS)
 - [ ] Ajax (JavaScript)
 - [ ] Crispy Form
