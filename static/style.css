@@ -1,0 +1,8 @@
+.login {
+    display: inline-block;
+    float: right;
+}
+
+#username {
+    display: inline-block;
+}
