@@ -28,8 +28,10 @@
                 <td>{{ object.bike }}</td>
                 <td class="text-center">{{ object.points }}</td>
                 {% if user.is_authenticated %}
-                <td><a href="{% url 'djangogp:rider_update' object.id %}" class="btn btn-warning">Update</a></td>
-                <td><a href="{% url 'djangogp:rider_delete' object.id %}" class="btn btn-danger">Delete</a></td>
+                <td class="p-1"><a href="{% url 'djangogp:rider_update' object.id %}" class="btn btn-warning">Update</a>
+                </td>
+                <td class="p-1"><a href="{% url 'djangogp:rider_delete' object.id %}" class="btn btn-danger">Delete</a>
+                </td>
                 {% endif %}
             </tr>
             {% endfor %}
