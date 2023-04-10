@@ -1,33 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="background-color: #c80502; padding: 0.1rem">
-    <h1 style="color: white; text-align: center">Championship Standings DjangoGP</h1>
+<h1 class="text-center text-light p-2" id="standings">Championship Standings DjangoGP</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <th>Position</th>
+            <th>Rider</th>
+            <th>Nation</th>
+            <th>Team</th>
+            <th>Bike</th>
+            <th>Points</th>
+            {% if user.is_authenticated %}
+            <th></th>
+            <th></th>
+            {% endif %}
+        </thead>
+        <tbody class="table-group-divider">
+            {% for object in object_list %}
+            <tr class=" table-secondary">
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'djangogp:rider_detail' object.id %}"
+                        class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover">{{ object.name}}</a>
+                </td>
+                <td>{{ object.country }}</td>
+                <td>{{ object.team }}</td>
+                <td>{{ object.bike }}</td>
+                <td class="text-center">{{ object.points }}</td>
+                {% if user.is_authenticated %}
+                <td><a href="{% url 'djangogp:rider_update' object.id %}" class="btn btn-warning">Update</a></td>
+                <td><a href="{% url 'djangogp:rider_delete' object.id %}" class="btn btn-danger">Delete</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-<table>
-    <th>Position</th>
-    <th>Rider</th>
-    <th>Nation</th>
-    <th>Team</th>
-    <th>Bike</th>
-    <th>Points</th>
-    {% for object in object_list %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td><a href="{% url 'djangogp:rider_detail' object.id %}">{{ object.name }}</a></td>
-        <td>{{ object.country }}</td>
-        <td>{{ object.team }}</td>
-        <td>{{ object.bike }}</td>
-        <td>{{ object.points }}</td>
-        {% if user.is_authenticated %}
-        <td><a href="{% url 'djangogp:rider_update' object.id %}">Update</a></td>
-        <td><a href="{% url 'djangogp:rider_delete' object.id %}">Delete</a></td>
-        {% endif %}
-    </tr>
-    {% endfor %}
-</table>
-<br>
 {% if user.is_authenticated %}
-<a href="{% url 'djangogp:rider_create' %}">Create</a>
+<div class="container-fluid">
+    <a href="{% url 'djangogp:rider_create' %}" class="btn btn-success">Create</a>
+</div>
 {% endif %}
 {% endblock %}
