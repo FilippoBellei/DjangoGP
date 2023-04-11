@@ -2,7 +2,7 @@
 
 {% block content %}
 <br>
-<div class="dropdown">
+<div class="dropdown d-grid col-4 mx-auto">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
         aria-expanded="false">Races</button>
     <ul class="dropdown-menu">
@@ -12,30 +12,39 @@
     </ul>
 </div>
 <br>
-<h1>{{ race.name }}</h1>
-<span>{{ race.city }} , {{ race.date }}</span>
-<span>{{ race.temperature }}º C</span>
-<span>{{ race.weather }}</span>
-<span>Track condition: {{ race.trackCondition }}</span>
-<span>Humidity: {{ race.humidity }}%</span>
-<span>Ground: {{ race.groundTemperature }}º</span>
-<br>
-<table>
-    <th>Position</th>
-    <th>Points</th>
-    <th>Rider</th>
-    <th>Nation</th>
-    <th>Team</th>
-    <th>Bike</th>
-    {% for object in results %}
-    <tr>
-        <td>{{ object.position }}</td>
-        <td>{{ object.points }}</td>
-        <td><a href="{% url 'djangogp:rider_detail' object.rider.id %}">{{ object.rider.name }}</a></td>
-        <td>{{ object.rider.country }}</td>
-        <td>{{ object.rider.team }}</td>
-        <td>{{ object.rider.bike }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<h1 class="text-center">{{ race.name }}</h1>
+<div class="text-light bg-dark">
+    <p class="d-inline-block">{{ race.city }}, {{ race.date }}</p>
+    <p class="d-inline-block">{{ race.temperature }}º C</p>
+    <p class="d-inline-block">{{ race.weather }}</p>
+    <p class="d-inline-block">Track condition: {{ race.trackCondition }}</p>
+    <p class="d-inline-block">Humidity: {{ race.humidity }}%</p>
+    <p class="d-inline-block">Ground: {{ race.groundTemperature }}º</p>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <th>Position</th>
+            <th>Points</th>
+            <th>Rider</th>
+            <th>Nation</th>
+            <th>Team</th>
+            <th>Bike</th>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for object in results %}
+            <tr class=" table-secondary">
+                <td>{{ object.position }}</td>
+                <td>{{ object.points }}</td>
+                <td><a href="{% url 'djangogp:rider_detail' object.rider.id %}"
+                        class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover">{{object.rider.name}}</a>
+                </td>
+                <td>{{ object.rider.country }}</td>
+                <td>{{ object.rider.team }}</td>
+                <td>{{ object.rider.bike }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
