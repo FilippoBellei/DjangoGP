@@ -1,8 +1,21 @@
 {% extends "base.html" %}
+{% block title %}
+{% if object %}
+Edit {{ object.name }}
+{% else %}
+New rider
+{% endif %}
+{% endblock %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1 class="text-center text-light bg-secondary p-2">{% if object %} Edit {{ object.name }} {% else %} New rider {% endif %}</h1>
+<h1 class="text-center text-light bg-secondary p-2">
+    {% if object %}
+    Edit {{ object.name }}
+    {% else %}
+    New rider
+    {% endif %}
+</h1>
 <div class="container-fluid">
     <form action="" method="post">
         {% csrf_token %}
