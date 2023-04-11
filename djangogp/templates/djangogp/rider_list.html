@@ -21,7 +21,7 @@
             <tr class=" table-secondary">
                 <td>{{ forloop.counter }}</td>
                 <td><a href="{% url 'djangogp:rider_detail' object.id %}"
-                        class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover">{{ object.name}}</a>
+                        class="link-dark link-underline-opacity-0 link-underline-opacity-100-hover">{{object.name}}</a>
                 </td>
                 <td>{{ object.country }}</td>
                 <td>{{ object.team }}</td>
