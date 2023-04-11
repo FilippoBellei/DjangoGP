@@ -5,6 +5,7 @@ Aggiungere:
 - Flexbox o grid (CSS o Bootstrap)
 - Ajax (JavaScript)
 
-Controllare: 
+Controllare:
+
 - Responsività
 - Accessibilità
