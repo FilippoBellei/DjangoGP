@@ -2,11 +2,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Login</h1>
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form | crispy }}
-    <input type="submit" value="Login">
-</form>
+<h1 class="text-center text-light bg-secondary p-2">Login</h1>
+<div class="container-fluid">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input type="submit" value="Login" class="btn btn-success">
+        <a href="{% url 'djangogp:rider_list' %}" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
 {% endblock %}
