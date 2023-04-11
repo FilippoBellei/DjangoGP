@@ -1,6 +1,10 @@
 # Tasks
 
-- [ ] Flexbox o grid (CSS)
-- [ ] Ajax (JavaScript)
-- [ ] Crispy Form
-- [ ] Accessibilità
+Aggiungere:
+
+- Flexbox o grid (CSS o Bootstrap)
+- Ajax (JavaScript)
+
+Controllare: 
+- Responsività
+- Accessibilità
