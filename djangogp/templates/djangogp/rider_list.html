@@ -30,7 +30,11 @@
                 {% if user.is_authenticated %}
                 <td class="p-1"><a href="{% url 'djangogp:rider_update' object.id %}" class="btn btn-warning">Update</a>
                 </td>
-                <td class="p-1"><a href="{% url 'djangogp:rider_delete' object.id %}" class="btn btn-danger">Delete</a>
+                <td class="p-1">
+                    <form method="POST" action="{% url 'djangogp:rider_delete' object.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn btn-danger" onclick="return deleteRider()">
+                    </form>
                 </td>
                 {% endif %}
             </tr>
@@ -43,4 +47,9 @@
     <a href="{% url 'djangogp:rider_create' %}" class="btn btn-success">Create</a>
 </div>
 {% endif %}
+<script>
+    function deleteRider() {
+        return confirm("Are you sure you want to delete {{object.name}}?");
+    }
+</script>
 {% endblock %}

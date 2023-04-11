@@ -12,7 +12,7 @@ Mandatory:
 - [x] Gestione automatica dei punti
 - [x] Gestione automatica della classifica
 - [ ] HTML Responsive (almeno 1 breakpoint)
-- [ ] Gestire il design con Bootstrap
+- [x] Gestire il design con Bootstrap
 
 Optional:
 
