@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1 class="text-center text-light bg-secondary p-2">{{ object.name }}</h1>
+<h2>{{ object.country }}</h2>
+<h3>{{ object.team }}</h3>
 <br>
-<p>{{ object.country }}</p>
-<p>{{ object.name }}</p>
-<p>{{ object.team }}</p>
-<br>
-<p>Bike : {{ object.bike }}</p>
-<p>Date of birth : {{ object.dateOfBirth }}</p>
-<p>Place of birth : {{ object.placeOfBirth }}</p>
-<p>Height : {{ object.height }} cm | Weight : {{ object.weight }} kg</p>
+<h6>Bike : {{ object.bike }}</h6>
+<h6>Date of birth : {{ object.dateOfBirth }}</h6>
+<h6>Place of birth : {{ object.placeOfBirth }}</h6>
+<h6>Height : {{ object.height }} cm | Weight : {{ object.weight }} kg</h6>
 {% endblock %}

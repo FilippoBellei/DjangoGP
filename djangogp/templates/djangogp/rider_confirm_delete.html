@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<br>
-<h1>Delete {{ object.name }} ?</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Delete">
-</form>
-<br>
-<a href="{% url 'djangogp:rider_list' %}">Cancel</a>
+<h1 class="text-center text-light bg-secondary p-2">Delete {{ object.name }} ?</h1>
+<div class="container-fluid">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-success">
+        <a href="{% url 'djangogp:rider_list' %}" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
 {% endblock %}
